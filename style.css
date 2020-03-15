@@ -1,0 +1,11 @@
+#resultadoBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Contenedor__Tarjeta {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #000000;
+}
