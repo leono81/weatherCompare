@@ -5,8 +5,8 @@ class cardClimaInfo {
         this.tempMax = tempMax
         this.windDir = windDir
         this.date = date
-        this.precip = precip
         this.pop = pop
+        this.precip = precip
     }
 
     creaData () {
