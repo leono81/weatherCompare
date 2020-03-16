@@ -1,10 +1,10 @@
 class cardClimaInfo {
-    constructor (section,tempMin, tempMax,windDir,date, precip, pop) {
+    constructor (section,{low_temp, max_temp,wind_cdir,valid_date, precip, pop}) {
         this.section = section
-        this.tempMin = tempMin
-        this.tempMax = tempMax
-        this.windDir = windDir
-        this.date = date
+        this.tempMin = low_temp
+        this.tempMax = max_temp
+        this.windDir = wind_cdir
+        this.date = valid_date
         this.pop = pop
         this.precip = precip
     }
@@ -12,38 +12,21 @@ class cardClimaInfo {
     creaData () {
         const sectionCardContainer = document.createElement('section')
         const nodeSectionCardContainer =this.section.appendChild(sectionCardContainer)
-        nodeSectionCardContainer.className = "Contenedor__Tarjeta"
+        nodeSectionCardContainer.className = "Tarjeta"
 
-        const nodeFecha = document.createElement('p')
-        const textFecha = `Fecha: ${this.date}`
-        const textFechaNode = document.createTextNode(textFecha)
-        nodeFecha.appendChild(textFechaNode)
-        nodeSectionCardContainer.appendChild(nodeFecha)
+        this.creaInfo(`Fecha: ${this.date}`,nodeSectionCardContainer)
+        this.creaInfo(`Temp. Minima: ${this.tempMin}°C`,nodeSectionCardContainer)
+        this.creaInfo(`Temp. Maxima: ${this.tempMax}°C`,nodeSectionCardContainer)
+        this.creaInfo(`Probabilidad Lluvia: ${this.pop}%`,nodeSectionCardContainer)
+        this.creaInfo(`Precipitación: ${this.precip}mm`,nodeSectionCardContainer)
+    }
 
-        const nodeTempMin = document.createElement('p')
-        const textTempMin = `Temp. Minima: ${this.tempMin}°C`
-        const textTempMinNode = document.createTextNode(textTempMin)
-        nodeTempMin.appendChild(textTempMinNode)
-        nodeSectionCardContainer.appendChild(nodeTempMin)
-
-        const nodeTempMax = document.createElement('p')
-        const textTempMax = `Temp. Maxima: ${this.tempMax}°C`
-        const textTempMaxNode = document.createTextNode(textTempMax)
-        nodeTempMax.appendChild(textTempMaxNode)
-        nodeSectionCardContainer.appendChild(nodeTempMax)
-
-        const nodePop= document.createElement('p')
-        const textPop = `Probabilidad Lluvia: ${this.pop}%`
-        const textPopNode = document.createTextNode(textPop)
-        nodePop.appendChild(textPopNode)
-        nodeSectionCardContainer.appendChild(nodePop)
-
-
-        const nodePrecip = document.createElement('p')
-        const textPrecip = `Precipitación: ${this.precip}mm`
-        const textPrecipNode = document.createTextNode(textPrecip)
-        nodePrecip.appendChild(textPrecipNode)
-        nodeSectionCardContainer.appendChild(nodePrecip)
+    creaInfo (mensaje,node) {
+        const newNode = document.createElement('p')
+        const text = mensaje
+        const textNode = document.createTextNode(text)
+        newNode.appendChild(textNode)
+        node.appendChild(newNode)
     }
 }
 
@@ -77,14 +60,19 @@ function cargarDatoPantalla(weatherInfo) {
     const ciudad = document.getElementById('resultadoBusqueda__nombre_ciudad')
     const lugar = weatherInfo.city_name
     const weatherSection = document.getElementById('resultadoBusqueda')
-    
     ciudad.innerHTML = `<h2>Ciudad: ${lugar}</h2>`  
     
-    weatherInfo.data.forEach(data => {
-        const {low_temp, max_temp, wind_cdir, valid_date, precip, pop} = data
-        const tarjetaClima = new cardClimaInfo(weatherSection,low_temp, max_temp,wind_cdir,valid_date, precip, pop)
-        tarjetaClima.creaData()
-    });
+    for (let i=0;i<2;i++){
+        let sectionCardContainer = document.createElement('section')
+        let nodeSectionCardContainer =weatherSection.appendChild(sectionCardContainer)
+        nodeSectionCardContainer.className = "Contenedor__Tarjetas"
+        
+        weatherInfo.data.forEach(data => {
+            const tarjetaClima = new cardClimaInfo(nodeSectionCardContainer,data)
+            tarjetaClima.creaData()
+        });
+
+    }
 }
 
 function tomaCiudad () {
