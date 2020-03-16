@@ -1,24 +1,23 @@
 class cardClimaInfo {
     constructor (section,{low_temp, max_temp,wind_cdir,valid_date, precip, pop}) {
         this.section = section
-        this.tempMin = low_temp
-        this.tempMax = max_temp
-        this.windDir = wind_cdir
-        this.date = valid_date
-        this.pop = pop
-        this.precip = precip
+        this.info =[
+            `Fecha: ${valid_date}`,
+            `Temp. Minima: ${low_temp}°C`,
+            `Temp. Maxima: ${max_temp}°C`,
+            `Dire. Viento: ${wind_cdir}`,
+            `Probabilidad Lluvia: ${pop}%`,
+            `Precipitación: ${precip}mm`
+        ]
     }
 
-    creaData () {
+    getCard () {
         const sectionCardContainer = document.createElement('section')
         const nodeSectionCardContainer =this.section.appendChild(sectionCardContainer)
         nodeSectionCardContainer.className = "Tarjeta"
 
-        this.creaInfo(`Fecha: ${this.date}`,nodeSectionCardContainer)
-        this.creaInfo(`Temp. Minima: ${this.tempMin}°C`,nodeSectionCardContainer)
-        this.creaInfo(`Temp. Maxima: ${this.tempMax}°C`,nodeSectionCardContainer)
-        this.creaInfo(`Probabilidad Lluvia: ${this.pop}%`,nodeSectionCardContainer)
-        this.creaInfo(`Precipitación: ${this.precip}mm`,nodeSectionCardContainer)
+        this.info.forEach(mensaje =>this.creaInfo(mensaje,nodeSectionCardContainer))
+
     }
 
     creaInfo (mensaje,node) {
@@ -69,7 +68,7 @@ function cargarDatoPantalla(weatherInfo) {
         
         weatherInfo.data.forEach(data => {
             const tarjetaClima = new cardClimaInfo(nodeSectionCardContainer,data)
-            tarjetaClima.creaData()
+            tarjetaClima.getCard()
         });
 
     }
