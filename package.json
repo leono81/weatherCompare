@@ -4,7 +4,8 @@
   "description": "Web Weather App to compare different source data",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/leono81/weatherCompare/issues"
   },
-  "homepage": "https://github.com/leono81/weatherCompare#readme"
+  "homepage": "https://github.com/leono81/weatherCompare#readme",
+  "dependencies": {}
 }

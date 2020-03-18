@@ -7,18 +7,18 @@ function wrongPlace () {
     alert('Ciudad No encontrada')
 }
 
-function cargarDatoPantalla(weatherInfo) {
-    const ciudad = document.getElementById('resultadoBusqueda__nombre_ciudad')
-    const lugar = weatherInfo.city_name
+function cargarDatoPantalla(weatherData) {
+    // const ciudad = document.getElementById('resultadoBusqueda__nombre_ciudad')
+    // const lugar = weatherInfo.city_name
+    // ciudad.innerHTML = `<h2>Ciudad: ${lugar}</h2>`  
     const weatherSection = document.getElementById('resultadoBusqueda')
-    ciudad.innerHTML = `<h2>Ciudad: ${lugar}</h2>`  
     
-    for (let i=0;i<2;i++){
+    for (let weatherInfo of weatherData){
         let sectionCardContainer = document.createElement('section')
         let nodeSectionCardContainer =weatherSection.appendChild(sectionCardContainer)
         nodeSectionCardContainer.className = "Contenedor__Tarjetas"
         
-        weatherInfo.data.forEach(data => {
+        weatherInfo.forEach(data => {
             const tarjetaClima = new cardClimaInfo(nodeSectionCardContainer,data)
             tarjetaClima.getCard()
         });
@@ -26,20 +26,18 @@ function cargarDatoPantalla(weatherInfo) {
     }
 }
 
-async function tomaCiudad () {
+async function searchWeatherInfo () {
     const cityName = document.getElementById("inputCity").value
-
     const coor = await getCoordinates(cityName)
-
     const weather = new datosClima(coor)
-    const weatherData = weather.getWeatherData()
-    
+    const weatherData = await weather.getWeatherData()
+    cargarDatoPantalla(weatherData, coor)
 }
 
 
 const boton = document.getElementById("btn")
 
-boton.addEventListener('click',tomaCiudad);
+boton.addEventListener('click',searchWeatherInfo);
 
 
 
