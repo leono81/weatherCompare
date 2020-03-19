@@ -1,8 +1,8 @@
 class cardClimaInfo {
-    constructor (section,{tempMin, tempMax,windDir,valid_date, precip, pop,windSpeed}) {
+    constructor (section,{tempMin, tempMax,windDir,name, precip, pop,windSpeed}) {
         this.section = section
+        this.apiSource = name
         this.info =[
-            // `Fecha: ${valid_date}`,
             `Temp. Minima: ${tempMin}°C`,
             `Temp. Maxima: ${tempMax}°C`,
             `Dire. Viento: ${windDir}`,
@@ -17,12 +17,13 @@ class cardClimaInfo {
         const nodeSectionCardContainer =this.section.appendChild(sectionCardContainer)
         nodeSectionCardContainer.className = "Tarjeta"
 
-        this.info.forEach(mensaje =>this.creaInfo(mensaje,nodeSectionCardContainer))
+
+        this.info.forEach(mensaje =>this.createInfo(mensaje,nodeSectionCardContainer,'p'))
 
     }
 
-    creaInfo (mensaje,node) {
-        const newNode = document.createElement('p')
+    createInfo (mensaje,node,element) {
+        const newNode = document.createElement(element)
         const text = mensaje
         const textNode = document.createTextNode(text)
         newNode.appendChild(textNode)

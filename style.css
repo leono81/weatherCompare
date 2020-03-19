@@ -1,5 +1,10 @@
 #resultadoBusqueda {
+    font-size: small;
+}
 
+#resultadoBusqueda h2 {
+    text-align: center;
+    margin-bottom: 0;
 }
 
 .Tarjeta {

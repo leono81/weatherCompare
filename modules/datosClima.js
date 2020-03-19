@@ -1,4 +1,4 @@
-import myKeys from '../config.js'
+import myKeys from '../assets/config.js'
 
 class datosClima{
     constructor (coor){
@@ -30,6 +30,7 @@ class datosClima{
             for (let data of resp.data) {
                 const {low_temp,max_temp,wind_cdir,wind_spd,pop, precip} = data
                 const dataObj = {
+                    name: 'Weather Bit',
                     tempMin: low_temp,
                     tempMax: max_temp,
                     windDir: wind_cdir,
@@ -52,9 +53,11 @@ class datosClima{
         try {
             const resp = await this.getInfo(url)
 
+
             for (let i = 0; i < 5; i++) {
                 const {temperatureMin, temperatureMax,windBearing,windSpeed,precipProbability,precipIntensityMax} = resp.daily.data[i]
                 const dataObj = {
+                    name: 'Dark Sky',
                     tempMin: temperatureMin,
                     tempMax: temperatureMax,
                     windDir: windBearing,
