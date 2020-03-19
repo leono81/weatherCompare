@@ -1,0 +1,21 @@
+{
+  "name": "climaapp",
+  "version": "1.0.0",
+  "description": "Web Weather App to compare different source data",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leono81/weatherCompare.git"
+  },
+  "author": "Leandro Terrado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leono81/weatherCompare/issues"
+  },
+  "homepage": "https://github.com/leono81/weatherCompare#readme",
+  "dependencies": {}
+}

@@ -1,11 +1,20 @@
 #resultadoBusqueda {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: small;
 }
 
-.Contenedor__Tarjeta {
+#resultadoBusqueda h2 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.Tarjeta {
     margin: 20px;
     padding: 20px;
     border: 2px solid #000000;
+}
+
+.Contenedor__Tarjetas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
