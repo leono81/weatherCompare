@@ -1,6 +1,57 @@
+body{
+    background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    color:white;
+    font-size: 40px;
+    margin: 0px;
+}
+
+#inputCity {
+    background-color: rgba(255,255,255,0.1);
+    border:2px solid white;
+    border-radius: 25px;
+    color:white;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    height: 50px;
+    padding: 0px 20px;
+    width: 50%;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+::placeholder{
+    color:white;
+}
+
+#btn {
+    font-size: 20px;
+    margin: 20px;
+    background-color: transparent;
+    border:2px solid white;
+    border-radius: 25px;
+    height: 50px;
+    padding: 0px 20px;
+    color:white;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+#btn:hover {
+    background-color: white;
+    color: rgba(34,193,195,1);
+}
+
 #resultadoBusqueda {
     font-size: small;
 }
+
+
 
 #resultadoBusqueda h2 {
     text-align: center;
@@ -8,8 +59,8 @@
 }
 
 .Tarjeta {
-    margin: 20px;
-    padding: 20px;
+    margin: 10px;
+    padding: 10px;
     border: 2px solid #000000;
 }
 
