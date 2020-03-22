@@ -1,4 +1,4 @@
-import climaInfo from "../modules/climaInfo.js"
+import displayWeatherData from "../modules/displayWeatherData.js"
 import getCoordinates from "../modules/coordinates.js"
 import datosClima from "../modules/datosClima.js"
 import arrayOfInfo from "../testInfo.js"
@@ -8,21 +8,13 @@ function wrongPlace () {
     alert('Ciudad No encontrada')
 }
 
-function cargarDatoPantalla(weatherData,coor) {
+function cargarDatoPantalla(weatherData) {
  
     const weatherSection = document.getElementById('resultadoBusqueda')
     
     
     for (let weatherInfo of weatherData){
-        let sectionCardContainer = document.createElement('section')
-        let nodeSectionCardContainer =weatherSection.appendChild(sectionCardContainer)
-        nodeSectionCardContainer.className = "Contenedor__Tarjetas"
-
-        
-        weatherInfo.forEach(data => {
-            const tarjetaClima = new climaInfo(nodeSectionCardContainer,data)
-            tarjetaClima.getCard()
-        });
+        displayWeatherData(weatherSection, weatherInfo)
 
     }
 }
