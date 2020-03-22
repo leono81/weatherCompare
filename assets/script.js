@@ -1,4 +1,4 @@
-import cardClimaInfo from "../modules/cardClima.js"
+import climaInfo from "../modules/climaInfo.js"
 import getCoordinates from "../modules/coordinates.js"
 import datosClima from "../modules/datosClima.js"
 import arrayOfInfo from "../testInfo.js"
@@ -14,19 +14,13 @@ function cargarDatoPantalla(weatherData,coor) {
     
     
     for (let weatherInfo of weatherData){
-        let newNode = document.createElement('h2')
-        let text = weatherInfo[0].name
-        let textNode = document.createTextNode(text)
-        newNode.appendChild(textNode)
-        weatherSection.appendChild(newNode)
-
         let sectionCardContainer = document.createElement('section')
         let nodeSectionCardContainer =weatherSection.appendChild(sectionCardContainer)
         nodeSectionCardContainer.className = "Contenedor__Tarjetas"
 
         
         weatherInfo.forEach(data => {
-            const tarjetaClima = new cardClimaInfo(nodeSectionCardContainer,data)
+            const tarjetaClima = new climaInfo(nodeSectionCardContainer,data)
             tarjetaClima.getCard()
         });
 

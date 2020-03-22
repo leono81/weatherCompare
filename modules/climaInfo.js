@@ -1,14 +1,14 @@
-class cardClimaInfo {
+class climaInfo {
     constructor (section,{tempMin, tempMax,windDir,name, precip, pop,windSpeed}) {
         this.section = section
         this.apiSource = name
         this.info =[
-            `Temp. Minima: ${tempMin}°C`,
-            `Temp. Maxima: ${tempMax}°C`,
-            `Dire. Viento: ${windDir}`,
-            `Vel. Viento: ${windSpeed.toFixed(2)}km/h`,
-            `Probabilidad Lluvia: ${pop.toFixed(2)}%`,
-            `Precipitación: ${precip.toFixed(2)}mm`
+            `${tempMin}°C`,
+            `${tempMax}°C`,
+            `${windDir}`,
+            `${windSpeed.toFixed(2)}km/h`,
+            `${pop.toFixed(2)}%`,
+            `${precip.toFixed(2)}mm`
         ]
     }
 
@@ -31,4 +31,4 @@ class cardClimaInfo {
     }
 }
 
-export default cardClimaInfo;
+export default climaInfo;
