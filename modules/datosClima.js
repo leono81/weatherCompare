@@ -7,7 +7,6 @@ class datosClima{
         this.days = 5
         this.format = 'metric'
         this.lang = 'es'
-        
     }
 
     async getWeatherData () {
