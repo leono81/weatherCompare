@@ -12,6 +12,12 @@ function cargarDatoPantalla(weatherData) {
  
     const weatherSection = document.getElementById('resultadoBusqueda')
     
+    if (weatherSection.childElementCount > 0){
+
+        weatherSection.innerHTML = ''
+    }
+    
+
     
     for (let weatherInfo of weatherData){
         displayWeatherData(weatherSection, weatherInfo)
