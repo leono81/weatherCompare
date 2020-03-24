@@ -1,7 +1,6 @@
 import displayWeatherData from "../modules/displayWeatherData.js"
 import getCoordinates from "../modules/coordinates.js"
 import datosClima from "../modules/datosClima.js"
-import arrayOfInfo from "../testInfo.js"
 
 
 function wrongPlace () {
@@ -13,15 +12,11 @@ function cargarDatoPantalla(weatherData) {
     const weatherSection = document.getElementById('resultadoBusqueda')
     
     if (weatherSection.childElementCount > 0){
-
         weatherSection.innerHTML = ''
     }
     
-
-    
     for (let weatherInfo of weatherData){
         displayWeatherData(weatherSection, weatherInfo)
-
     }
 }
 

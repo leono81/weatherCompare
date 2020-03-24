@@ -11,10 +11,12 @@ function displayWeatherData (weatherSection, weatherInfo) {
     displayWeatherTitles (nodeSectionCardContainer)
 
     
-    weatherInfo.forEach(data => {
+    weatherInfo.weatherData.forEach(data => {
         const tarjetaClima = new climaInfo(nodeSectionCardContainer,data)
         tarjetaClima.getCard()
     });
+
+    createInfo(weatherInfo.source,nodeSectionCardContainer,'h3','api__source')
 }
 
 function displayTitles(weatherSection){

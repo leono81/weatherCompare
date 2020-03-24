@@ -60,9 +60,10 @@ h1{
 
 .Contenedor__Tarjetas{
     display: grid;
-    grid-template-columns: 140px repeat(5, minmax(50px, 100px));
+    grid-template-columns: 140px repeat(6, minmax(50px, 100px));
     justify-content: center;
     justify-items: center;
+    margin-bottom: 30px;
 }
 
 .Contenedor__Tarjetas .TarjetaTitulo {
@@ -71,14 +72,19 @@ h1{
     font-weight: bold;
 }
 
+.api__source{
+    align-self: center;
+}
+
 .title__table {
     display: grid;
-    grid-template-columns: 140px repeat(5, minmax(50px, 100px));
+    grid-template-columns: 140px repeat(6, minmax(50px, 100px));
     justify-content: center;
     justify-items: center;
     font-weight: bold;
     font-style: italic;
 }
+
 
 .title__table p {
     margin: 0;

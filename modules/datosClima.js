@@ -40,8 +40,13 @@ class datosClima{
                 }
                 weatherData.push(dataObj)
             }
+            let weatherInfo ={
+                weatherData,
+                source: 'weatherBit'
+            }
             
-            return(weatherData)
+            return(weatherInfo)
+
         } catch (error) {
             console.log(error)
         }
@@ -67,7 +72,13 @@ class datosClima{
                 }
                 weatherData.push(dataObj)
             }
-            return(weatherData)
+
+            let weatherInfo ={
+                weatherData,
+                source: 'Dark Sky'
+            }
+
+            return(weatherInfo)
         } catch (error) {
             console.log(error)
         }
