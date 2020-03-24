@@ -3,8 +3,7 @@ import climaInfo from "./climaInfo.js"
 
 
 function displayWeatherData (weatherSection, weatherInfo) {
-
-
+    displayTitles(weatherSection)
     let sectionCardContainer = document.createElement('section')
     let nodeSectionCardContainer =weatherSection.appendChild(sectionCardContainer)
     nodeSectionCardContainer.className = "Contenedor__Tarjetas"
@@ -18,7 +17,39 @@ function displayWeatherData (weatherSection, weatherInfo) {
     });
 }
 
+function displayTitles(weatherSection){
+    let consecutiveDays = []
 
+    addConsecutiveDays(consecutiveDays)
+    
+    consecutiveDays.unshift('')
+
+    let tableTitle = createInfo('',weatherSection,'section','title__table')
+
+    consecutiveDays.forEach(mensaje => createInfo(mensaje,tableTitle,'p'))
+    
+
+}
+
+function addConsecutiveDays (lista) {
+
+    let index = lista.length
+
+    if ( index > 4) {
+        return lista
+    }
+    else {
+        let date = new Date
+        date.setDate(date.getDate() + index)
+        let day = date.getDate()
+        let month = date.getMonth()
+        let year = date.getFullYear()
+        let fullDate = `${day}/${month}/${year}`
+
+        lista.push(fullDate)
+        addConsecutiveDays(lista)
+    }
+}
 
 function displayWeatherTitles (contenedor) {
     const title = [
@@ -36,12 +67,16 @@ function displayWeatherTitles (contenedor) {
     title.forEach(mensaje =>createInfo(mensaje,nodeSectionCardContainer,'p'))
 }
 
-function createInfo (mensaje,node,element) {
+function createInfo (mensaje,node,element,className = '') {
     const newNode = document.createElement(element)
     const text = mensaje
     const textNode = document.createTextNode(text)
     newNode.appendChild(textNode)
     node.appendChild(newNode)
+    newNode.className = className
+    return newNode
 }
 
 export default displayWeatherData;
+
+
