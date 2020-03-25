@@ -1,5 +1,6 @@
+import {createInfo} from "../assets/tools.js"
 class climaInfo {
-    constructor (section,{tempMin, tempMax,windDir,name, precip, pop,windSpeed}) {
+    constructor (section,{tempMin, tempMax,windDir,name, precip, pop,windSpeed,rh,uvIndex}) {
         this.section = section
         this.apiSource = name
         this.info =[
@@ -8,7 +9,9 @@ class climaInfo {
             `${windDir}`,
             `${windSpeed.toFixed(2)}km/h`,
             `${pop.toFixed(2)}%`,
-            `${precip.toFixed(2)}mm`
+            `${precip.toFixed(2)}mm`,
+            `${rh.toFixed(0)}%`,
+            `${uvIndex.toFixed(0)}`
         ]
     }
 
@@ -18,17 +21,10 @@ class climaInfo {
         nodeSectionCardContainer.className = "Tarjeta"
 
 
-        this.info.forEach(mensaje =>this.createInfo(mensaje,nodeSectionCardContainer,'p'))
+        this.info.forEach(mensaje => createInfo(mensaje,nodeSectionCardContainer,'p'))
 
     }
 
-    createInfo (mensaje,node,element) {
-        const newNode = document.createElement(element)
-        const text = mensaje
-        const textNode = document.createTextNode(text)
-        newNode.appendChild(textNode)
-        node.appendChild(newNode)
-    }
 }
 
 export default climaInfo;

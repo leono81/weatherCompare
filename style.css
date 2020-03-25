@@ -9,6 +9,11 @@ h1{
     margin: 0px;
 }
 
+hr {
+    border:1px solid black;
+    margin:0;
+}
+
 #inputCity {
     background-color: rgba(255,255,255,0.1);
     border:2px solid white;
@@ -26,6 +31,13 @@ h1{
 
 ::placeholder{
     color:white;
+}
+
+.pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 25px;
 }
 
 #btn {
@@ -47,8 +59,38 @@ h1{
     color: rgba(34,193,195,1);
 }
 
+
+
+#datosBusqueda {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+#resultado__datosLugar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultado__datosLugar #mapa {
+    -webkit-box-shadow: 10px 13px 43px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 13px 43px -5px rgba(0,0,0,0.75);
+    box-shadow: 10px 13px 43px -5px rgba(0,0,0,0.75);
+
+}
+
+#resultadoBusqueda__nombre_ciudad {
+    text-align: center;
+    font-size: 35px;
+}
+
 #resultadoBusqueda {
     font-size: 12px;
+    padding-top: 45 px;
+    display: flex;
+    flex-direction: column;
+    justify-content:  center;
 }
 
 
@@ -56,6 +98,7 @@ h1{
 #resultadoBusqueda h2 {
     text-align: center;
     margin-bottom: 0;
+
 }
 
 .Contenedor__Tarjetas{
@@ -63,7 +106,7 @@ h1{
     grid-template-columns: 140px repeat(6, minmax(50px, 100px));
     justify-content: center;
     justify-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .Contenedor__Tarjetas .TarjetaTitulo {
