@@ -28,4 +28,29 @@ function addConsecutiveDays (lista) {
     }
 }
 
-export {createInfo,addConsecutiveDays}
+function loadingScreen (weatherSection, mapa, ciudad,) {
+    const loadingNode = document.getElementById('loadAnimation')
+    const loadingContainer = document.getElementById('loading__container')
+
+    if (weatherSection.childElementCount > 0){
+        weatherSection.innerHTML = ''
+        ciudad.innerHTML= ''
+        mapa.innerHTML = ''
+    }
+    
+    loadingNode.className = 'lds-facebook'
+    loadingContainer.className = 'loading__container'
+}
+
+function noLoadingScreen () {
+    const loadingNode = document.getElementById('loadAnimation')
+    const loadingContainer = document.getElementById('loading__container')
+
+    loadingNode.classList.remove("lds-facebook")
+    loadingContainer.classList.remove("loading__container")
+
+}
+
+    
+
+export {createInfo,addConsecutiveDays, loadingScreen, noLoadingScreen}
