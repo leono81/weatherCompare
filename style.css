@@ -7,11 +7,19 @@ h1{
     color:white;
     font-size: 40px;
     margin: 0px;
+    text-align: center;
 }
 
 hr {
     border:1px solid black;
     margin:0;
+}
+
+#search__container {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #inputCity {
@@ -23,10 +31,9 @@ hr {
     font-size: 16px;
     height: 50px;
     padding: 0px 20px;
-    width: 50%;
+    width: 60%;
     outline: none;
     font-family: 'Montserrat', sans-serif;
-
 }
 
 ::placeholder{
@@ -51,6 +58,8 @@ hr {
     color:white;
     outline: none;
     font-family: 'Montserrat', sans-serif;
+    outline: none;
+
 
 }
 
@@ -64,6 +73,7 @@ hr {
 #datosBusqueda {
     display:flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 #resultado__datosLugar {
@@ -71,6 +81,7 @@ hr {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width:40%;
 }
 
 #resultado__datosLugar #mapa {
@@ -88,7 +99,7 @@ hr {
 
 #resultadoBusqueda {
     font-size: 12px;
-    padding-top: 45 px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content:  center;
@@ -99,6 +110,7 @@ hr {
 #resultadoBusqueda h2 {
     text-align: center;
     margin-bottom: 0;
+    width: 50%;
 
 }
 
@@ -184,4 +196,60 @@ hr {
         height: 32px;
     }
 }
+
+@media screen and (max-width:801px){
+    #resultado__datosLugar {
+        width: 90%;
+    }
+  }
   
+  @media screen and (max-width:480px){
+    h1 {
+        font-size: 30px;
+    }
+
+    #inputCity {
+        width: 95%;
+        font-size: 15px;
+        height: 30px;
+        margin-top: 30px;
+    }
+
+
+    #resultadoBusqueda__nombre_ciudad {
+        font-size: 20px;
+    }
+
+    #mapa img {
+        width: 350px;
+        height: auto;
+    }
+
+    #btn {
+        font-size: 10px;
+        height: 35px;
+        width: 90px
+    }
+
+    #resultadoBusqueda {
+        font-size: 6px;
+        text-align: left;
+    }
+
+    .title__table {
+        grid-template-columns: 60px repeat(6, minmax(50px, 100px));
+    }
+
+    .Contenedor__Tarjetas {
+        display: grid;
+        grid-template-columns: 60px repeat(6, minmax(50px, 100px));
+    }
+  }
+  
+  @media screen and (max-width:320px){
+
+    #mapa img {
+        width: 310px;
+        height: auto;
+    }
+  }

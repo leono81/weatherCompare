@@ -18,7 +18,7 @@ function cargarDatoPantalla(weatherData, location) {
     displayTitles()
 
     var img = new Image();
-    img.src = `http://maps.googleapis.com/maps/api/staticmap?zoom=9&size=600x350&markers=color:red%7C${coor.lat},${coor.lng}&key=${config.googleKey}`
+    img.src = `http://maps.googleapis.com/maps/api/staticmap?zoom=9&size=400x250&markers=color:red%7C${coor.lat},${coor.lng}&key=${config.googleKey}`
     mapa.appendChild(img)
 
 

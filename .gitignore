@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.vscode/*
-=======
 .vscode/*
 node_modules/*
->>>>>>> codeupgrades
 config.js
